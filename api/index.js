@@ -9,16 +9,9 @@ import path from 'path';
 
 dotenv.config();
 
-const mongoUri = process.env.MONGO || 'mongodb://127.0.0.1:27017/mern-estate';
-
-mongoose
-  .connect(mongoUri)
-  .then(() => {
-    console.log('Connected to MongoDB!');
-  })
-  .catch((err) => {
-    console.log('MongoDB connection error:', err.message);
-  });
+mongoose.connect(process.env.MONGO)
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.log(err));
 
 const __dirname = path.resolve();
 
